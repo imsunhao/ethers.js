@@ -19582,6 +19582,8 @@
 	                        headers: (options.headers || {}),
 	                        body: (options.body || undefined),
 	                    };
+	                    if (options.signal)
+	                        request.signal = options.signal;
 	                    if (options.skipFetchSetup !== true) {
 	                        request.mode = "cors"; // no-cors, cors, *same-origin
 	                        request.cache = "no-cache"; // *default, no-cache, reload, force-cache, only-if-cached
@@ -19746,6 +19748,7 @@
 	                value: "Basic " + (0, lib$p.encode)((0, lib$8.toUtf8Bytes)(authorization))
 	            };
 	        }
+	        options.signal = connection.signal;
 	    }
 	    var reData = new RegExp("^data:([a-z0-9-]+/[a-z0-9-]+);base64,(.*)$", "i");
 	    var dataMatch = ((url) ? url.match(reData) : null);

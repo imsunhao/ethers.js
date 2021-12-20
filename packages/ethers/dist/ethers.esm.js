@@ -17544,6 +17544,8 @@ function getUrl(href, options) {
             headers: (options.headers || {}),
             body: (options.body || undefined),
         };
+        if (options.signal)
+            request.signal = options.signal;
         if (options.skipFetchSetup !== true) {
             request.mode = "cors"; // no-cors, cors, *same-origin
             request.cache = "no-cache"; // *default, no-cache, reload, force-cache, only-if-cached
@@ -17660,6 +17662,7 @@ function _fetchData(connection, body, processFunc) {
                 value: "Basic " + encode$1(toUtf8Bytes(authorization))
             };
         }
+        options.signal = connection.signal;
     }
     const reData = new RegExp("^data:([a-z0-9-]+/[a-z0-9-]+);base64,(.*)$", "i");
     const dataMatch = ((url) ? url.match(reData) : null);

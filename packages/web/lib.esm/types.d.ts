@@ -14,5 +14,6 @@ export declare type Options = {
         [key: string]: string;
     };
     skipFetchSetup?: boolean;
+    signal?: AbortSignal;
 };
 //# sourceMappingURL=types.d.ts.map

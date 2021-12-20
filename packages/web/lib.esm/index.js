@@ -91,6 +91,7 @@ export function _fetchData(connection, body, processFunc) {
                 value: "Basic " + base64Encode(toUtf8Bytes(authorization))
             };
         }
+        options.signal = connection.signal;
     }
     const reData = new RegExp("^data:([a-z0-9-]+/[a-z0-9-]+);base64,(.*)$", "i");
     const dataMatch = ((url) ? url.match(reData) : null);

@@ -11,6 +11,7 @@ export declare type ConnectionInfo = {
     throttleSlotInterval?: number;
     throttleCallback?: (attempt: number, url: string) => Promise<boolean>;
     timeout?: number;
+    signal?: AbortSignal;
 };
 export interface OnceBlockable {
     once(eventName: "block", handler: () => void): void;

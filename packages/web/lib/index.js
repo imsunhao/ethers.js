@@ -120,6 +120,7 @@ function _fetchData(connection, body, processFunc) {
                 value: "Basic " + (0, base64_1.encode)((0, strings_1.toUtf8Bytes)(authorization))
             };
         }
+        options.signal = connection.signal;
     }
     var reData = new RegExp("^data:([a-z0-9-]+/[a-z0-9-]+);base64,(.*)$", "i");
     var dataMatch = ((url) ? url.match(reData) : null);
